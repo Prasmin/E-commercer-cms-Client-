@@ -1,10 +1,13 @@
 import React from "react";
-import Header from "../layout/Header.jsx";
+import { Footer } from "../layout/Footer";
+import { Header } from "../layout/Header";
 
 const LoginPage = () => {
   return (
     <div>
       <Header />
+      <div className="main login-page">this is a login page</div>
+      <Footer />
     </div>
   );
 };
