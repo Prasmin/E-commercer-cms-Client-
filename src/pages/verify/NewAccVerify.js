@@ -1,24 +1,26 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Alert, Spinner } from "react-bootstrap";
-import Footer from "../layout/Footer";
-import { useSearchParams } from "react-router-dom";
+import { Footer } from "../layout/Footer";
 import { Header } from "../layout/Header";
+
+import { useSearchParams } from "react-router-dom";
 import { postEmailVerification } from "../../helper/axios";
 
 export const NewAccVerify = () => {
-  //show spinner first
-  //
-  const isFetch = useRef(true);
+  // call the api with the code and email
+  // show the message if verified or not
+
   let [searchParams] = useSearchParams();
   const [response, setResponse] = useState({});
+  const isFetch = useRef(true);
 
   useEffect(() => {
     const emailVerificationCode = searchParams.get("c");
     const email = searchParams.get("email");
 
     //call the api
-
-    callAPi({ email, emailVerificationCode });
+    email && emailVerificationCode && callAPi({ email, emailVerificationCode });
+    isFetch.current = false;
   }, [searchParams]);
 
   const callAPi = async (obj) => {
