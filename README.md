@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# CMS Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cms frontend for the ecommerce project
 
-## Available Scripts
+## work flow
 
-In the project directory, you can run:
+When admin user forget their password, they should be able to reset password from the system
 
-### `npm start`
+So, follow the steps to build a password rest system:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. FORNTEND: show the email input form and let user submit that to API.
+2. BACKEND: Get the email data in the API and check if user exist in the our db associated with that email.
+3. BACKEND: if we have no user found, send error messesage saying user not found that complets the transaction.
+4. BACKEND: if user found, generate a random 6 digit number and store in a session table.
+5. BACKEND: send that randomly generated 6 digit number to tht user email address.
+6. BACKEND: at the same time send resopnse to frontend saying OTP has been sent to their email.
+7. FORNTEND: if we receive success message from the backend, then show another form that requires you to enter the OTP that was sent to your email and 2 more input fields for the new password and confirm password. let user submit the form to another API.
+8. BACKEND: once user submits the form, in the API, grabl that OTP and password and email.
+9. BACKEND: check if combination of email and OTP exitsts in the sessions table, if it doesnot exists simply respons saying invalid OTP. If it does exists than remove the data from the session table and continue to step 10.
+10. BACKEND: encrypt the incoming plain password, user table with that new ecnrypted password based on user email.
+11. BACKEND: once password update operation is succesful, then send email notification saying password has been changed, and also response password updated successfully message to the frontend.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## session model:
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+status: string,
+token: string, (insert OTP )
+association: string (insert email.)
+ct
+ut
