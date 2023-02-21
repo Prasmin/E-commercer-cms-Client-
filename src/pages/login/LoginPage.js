@@ -1,36 +1,36 @@
-import React, { useEffect, useRef } from "react"
-import { Footer } from "../layout/Footer"
-import { Header } from "../layout/Header"
-import Button from "react-bootstrap/Button"
-import Form from "react-bootstrap/Form"
-import { useDispatch, useSelector } from "react-redux"
-import { loginAction } from "./authAction"
-import { Spinner } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import React, { useEffect, useRef } from "react";
+import { Footer } from "../layout/Footer";
+import { Header } from "../layout/Header";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "./authAction";
+import { Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const emailRef = useRef("")
-  const passRef = useRef("")
-  const { isLoading, user } = useSelector((state) => state.user)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const emailRef = useRef("");
+  const passRef = useRef("");
+  const { isLoading, user } = useSelector((state) => state.user);
 
   const handleOnSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const formDt = {
       email: emailRef.current.value,
       password: passRef.current.value,
-    }
+    };
     // disptach login action to call api
     if (!formDt.email || !formDt.password) {
-      return alert("Please fill in both the fields!")
+      return alert("Please fill in both the fields!");
     }
-    dispatch(loginAction(formDt))
-  }
+    dispatch(loginAction(formDt));
+  };
 
   useEffect(() => {
-    user?._id && navigate("/dashboard")
-  }, [user, navigate])
+    user?._id && navigate("/dashboard");
+  }, [user, navigate]);
 
   return (
     <div>
@@ -68,10 +68,13 @@ const LoginPage = () => {
             )}
           </Button>
         </Form>
+        <div className="text-end">
+          Forget password ? <a href="/reset-password"> Reset now</a>
+        </div>
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

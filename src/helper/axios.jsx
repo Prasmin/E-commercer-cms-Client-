@@ -38,3 +38,27 @@ export const loginAdmin = async (loginData) => {
     };
   }
 };
+
+export const fetchOtpRequest = async (frmDt) => {
+  try {
+    const { data } = await axios.post(adminApi + "/request-otp", frmDt);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+
+export const resetPassRequest = async (frmDt) => {
+  try {
+    const { data } = await axios.post(adminApi + "/reset-password", frmDt);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
