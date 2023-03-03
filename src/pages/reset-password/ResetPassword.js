@@ -15,6 +15,7 @@ const ResetPassword = () => {
   const handleOnChange = (e) => {
     const { value } = e.target;
     setEmail(value);
+    console.log(value);
   };
 
   const handleOnOtpRequest = async (e) => {
