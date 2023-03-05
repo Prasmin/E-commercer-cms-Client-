@@ -67,10 +67,11 @@ const LoginPage = () => {
               " Submit"
             )}
           </Button>
+
+          <div className="text-end">
+            Forget password ? <a href="/reset-password"> Reset now</a>
+          </div>
         </Form>
-        <div className="text-end">
-          Forget password ? <a href="/reset-password"> Reset now</a>
-        </div>
       </div>
       <Footer />
     </div>

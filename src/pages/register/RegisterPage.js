@@ -1,36 +1,36 @@
-import React, { useState } from "react"
-import { Footer } from "../layout/Footer"
-import { Header } from "../layout/Header"
-import Button from "react-bootstrap/Button"
-import Form from "react-bootstrap/Form"
-import Container from "react-bootstrap/esm/Container"
-import { CustomeInputeField } from "../../components/custom-inpute-field/CustomeInputeField"
-import { postNewAdmin } from "../../helper/axios"
-import { toast } from "react-toastify"
+import React, { useState } from "react";
+import { Footer } from "../layout/Footer";
+import { Header } from "../layout/Header";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/esm/Container";
+import { CustomeInputeField } from "../../components/custom-inpute-field/CustomeInputeField";
+import { postNewAdmin } from "../../helper/axios";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
-  const [form, setForm] = useState({})
+  const [form, setForm] = useState({});
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
 
     setForm({
       ...form,
       [name]: value,
-    })
-  }
+    });
+  };
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault()
-    const { confirmPassword, ...rest } = form
+    e.preventDefault();
+    const { confirmPassword, ...rest } = form;
     if (confirmPassword !== rest.password) {
-      toast.error("Password do not match!")
-      return
+      toast.error("Password do not match!");
+      return;
     }
-    const { status, message } = await postNewAdmin(rest)
+    const { status, message } = await postNewAdmin(rest);
 
-    toast[status](message)
-  }
+    toast[status](message);
+  };
   const inputes = [
     {
       label: "First Name",
@@ -79,7 +79,7 @@ const RegisterPage = () => {
       placeholder: "********",
       required: true,
     },
-  ]
+  ];
 
   return (
     <div>
@@ -105,7 +105,7 @@ const RegisterPage = () => {
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;
