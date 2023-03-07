@@ -10,6 +10,7 @@ export const AddNewCatFrm = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    console.log(name);
     dispatch(postNewCategory({ name }));
   };
 

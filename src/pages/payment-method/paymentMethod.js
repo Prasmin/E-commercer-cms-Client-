@@ -1,6 +1,6 @@
-import PaymentForm from "../../components/paymentform/PaymentForm";
+import { AddPaymentMethodFrm } from "../../components/paymentform/PaymentForm";
 
-import PaymentTable from "../../components/paymentform/PaymentTable";
+import { PmTable } from "../../components/paymentform/PaymentTable";
 
 import { AdminLayout } from "../layout/AdminLayout";
 
@@ -8,10 +8,10 @@ const PaymentMethod = () => {
   return (
     <AdminLayout>
       <div>
-        <PaymentForm />
+        <AddPaymentMethodFrm />
       </div>
       <div>
-        <PaymentTable />
+        <PmTable />
       </div>
     </AdminLayout>
   );

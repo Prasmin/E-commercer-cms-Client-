@@ -1,21 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  pay: [],
+  paymentMethods: [],
+  selectedPm: {},
 };
 
-const paySlice = createSlice({
-  name: "payment",
+const paymentMethodSlice = createSlice({
+  name: "paymentMethod",
   initialState,
   reducers: {
-    setPay: (state, { payload }) => {
-      state.pay = payload;
+    setPaymentMethods: (state, { payload = [] }) => {
+      state.paymentMethods = payload;
+    },
+    setSelectedPM: (state, { payload }) => {
+      state.selectedPm = payload;
     },
   },
 });
 
-const { reducer, actions } = paySlice;
+const { reducer, actions } = paymentMethodSlice;
 
-export const { setPay } = actions;
+export const { setPaymentMethods, setSelectedPM } = actions;
 
 export default reducer;

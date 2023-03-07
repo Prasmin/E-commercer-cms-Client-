@@ -2,7 +2,7 @@ import axios from "axios";
 const rootUrl = "http://localhost:8000/api/v1";
 const adminApi = rootUrl + "/admin";
 const catApi = rootUrl + "/category";
-const payApi = rootUrl + "/payment-methods";
+const pmApi = rootUrl + "/payment-methods";
 
 // ==For example, if the API expects the category name and description to be sent in the request body as JSON, the data object could look like this   "name": "Category A","description": "This is category A"==//
 
@@ -117,17 +117,9 @@ export const updateCategory = async (data) => {
   return fetchProcesser(obj);
 };
 
-//======= Payment =============
-export const fetchPayment = async () => {
-  const url = payApi;
-  const obj = {
-    method: "get",
-    url,
-  };
-  return fetchProcesser(obj);
-};
-export const postPayment = async (data) => {
-  const url = payApi;
+// ===== Payment Method
+export const postPM = async (data) => {
+  const url = pmApi;
   const obj = {
     method: "post",
     url,
@@ -136,8 +128,17 @@ export const postPayment = async (data) => {
   return fetchProcesser(obj);
 };
 
-export const deletePayment = async (_id) => {
-  const url = payApi + "/" + _id;
+export const fetchPM = async () => {
+  const url = pmApi;
+  const obj = {
+    method: "get",
+    url,
+  };
+  return fetchProcesser(obj);
+};
+
+export const deletePM = async (_id) => {
+  const url = pmApi + "/" + _id;
   const obj = {
     method: "delete",
     url,
@@ -145,8 +146,8 @@ export const deletePayment = async (_id) => {
   return fetchProcesser(obj);
 };
 
-export const updatePayment = async (data) => {
-  const url = payApi;
+export const updatePM = async (data) => {
+  const url = pmApi;
   const obj = {
     method: "put",
     url,
