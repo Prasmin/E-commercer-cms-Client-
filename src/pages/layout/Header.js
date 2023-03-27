@@ -2,8 +2,19 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { requestSuccess } from "../login/authSlice";
 
 export const Header = () => {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
+
+  const handleOnLogout = () => {
+    sessionStorage.removeItem("accessJWT");
+    localStorage.removeItem("refreshJWT");
+    dispatch(requestSuccess({}));
+  };
   return (
     <Navbar bg="warning" expand="md">
       <Container>
@@ -13,12 +24,32 @@ export const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link to="/" className="nav-link">
-              Login
-            </Link>
-            <Link to="/register" className="nav-link">
-              Sign Up
-            </Link>
+            {user?._id ? (
+              <>
+                <Link to="/register" className="nav-link">
+                  <i className="fa-solid fa-bell" title="Notifications"></i>
+                </Link>
+                <Link to="/register" className="nav-link">
+                  <i className="fa-solid fa-user-pen" title="User Profile"></i>
+                </Link>
+
+                <Link to="/" className="nav-link" onClick={handleOnLogout}>
+                  <i
+                    className="fa-solid fa-right-to-bracket"
+                    title="Log out"
+                  ></i>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/" className="nav-link">
+                  <i className="fa-solid fa-right-to-bracket"></i> Login
+                </Link>
+                <Link to="/register" className="nav-link">
+                  <i className="fa-solid fa-user-pen"></i> Sign Up
+                </Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -10,6 +10,9 @@ import { NewAccVerify } from "./pages/verify/NewAccVerify";
 import PaymentMethod from "./pages/payment-method/paymentMethod";
 import Category from "./pages/category/Category";
 import ResetPassword from "./pages/reset-password/ResetPassword";
+import Product from "./pages/products/Product";
+import { NewProduct } from "./pages/products/NewProduct";
+import { PrivateRouter } from "./components/private-router/PrivateRouter";
 
 function App() {
   return (
@@ -23,10 +26,55 @@ function App() {
 
           {/* private router */}
 
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="category" element={<Category />} />
-          <Route path="payment-methods" element={<PaymentMethod />} />
+          <Route
+            path="register"
+            element={
+              <PrivateRouter>
+                <RegisterPage />
+              </PrivateRouter>
+            }
+          />
+
+          <Route
+            path="dashboard"
+            element={
+              <PrivateRouter>
+                <Dashboard />
+              </PrivateRouter>
+            }
+          />
+          <Route
+            path="category"
+            element={
+              <PrivateRouter>
+                <Category />
+              </PrivateRouter>
+            }
+          />
+          <Route
+            path="payment-methods"
+            element={
+              <PrivateRouter>
+                <PaymentMethod />
+              </PrivateRouter>
+            }
+          />
+          <Route
+            path="products"
+            element={
+              <PrivateRouter>
+                <Product />
+              </PrivateRouter>
+            }
+          />
+          <Route
+            path="products/new"
+            element={
+              <PrivateRouter>
+                <NewProduct />
+              </PrivateRouter>
+            }
+          />
         </Routes>
       </Browser>
       <ToastContainer />
