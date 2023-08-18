@@ -18,12 +18,28 @@ export const Header = () => {
     dispatch(requestSuccess({}));
   };
   return (
-    <Box>
-      <AppBar position="static" sx={{ backgroundColor: "#fafafa" }}>
-        <Toolbar sx={{ display: "flex", flexDirection: "row-reverse" }}>
-          <img src={logo} alt="logo" style={{ height: "40px" }} />
+    <Box sx={{ backgroundColor: "#fafafa" }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <img
+            src={logo}
+            alt="logo"
+            style={{ height: "40px" }}
+            component="div"
+            sx={{ flexGrow: 1 }}
+          />
+
           <Button variant="contained" size="medium">
-            GET STARTED
+            Login
           </Button>
         </Toolbar>
       </AppBar>
