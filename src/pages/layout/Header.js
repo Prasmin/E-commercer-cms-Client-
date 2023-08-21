@@ -6,6 +6,7 @@ import { requestSuccess } from "../login/authSlice";
 import { IconButton, Typography, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "./images/Logo.jpg";
+import Avatar from "@mui/material/Avatar";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -18,25 +19,25 @@ export const Header = () => {
     dispatch(requestSuccess({}));
   };
   return (
-    <Box sx={{ backgroundColor: "#fafafa" }}>
-      <AppBar position="static">
+    <Box>
+      <AppBar sx={{ backgroundColor: "#fafafa" }} position="static">
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
-          <img
+          <Avatar alt="Remy Sharp" src={logo} />
+          {/* <img
             src={logo}
             alt="logo"
             style={{ height: "40px" }}
             component="div"
             sx={{ flexGrow: 1 }}
-          />
+          /> */}
 
           <Button variant="contained" size="medium">
             Login
