@@ -30,17 +30,16 @@ export const Header = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Avatar alt="Remy Sharp" src={logo} />
-          {/* <img
-            src={logo}
-            alt="logo"
-            style={{ height: "40px" }}
+
+          <IconButton
             component="div"
-            sx={{ flexGrow: 1 }}
-          /> */}
+            sx={{ flexGrow: 1, justifyContent: "flex-start" }}
+          >
+            <Avatar alt="logo" src={logo} />
+          </IconButton>
 
           <Button variant="contained" size="medium">
-            Login
+            Sign Up
           </Button>
         </Toolbar>
       </AppBar>
