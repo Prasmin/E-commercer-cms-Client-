@@ -1,19 +1,18 @@
-import Box from "@mui/material/Box";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import { useDispatch, useSelector } from "react-redux";
 import { requestSuccess } from "../login/authSlice";
 import {
   IconButton,
-  Typography,
   Button,
   Hidden,
+  AppBar,
+  Box,
   Link,
-  ListItemIcon,
   ListItemText,
   Divider,
   List,
+  Toolbar,
   ListItem,
+  Drawer,
   ListItemButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -21,11 +20,9 @@ import logo from "./images/Logo.jpg";
 import Avatar from "@mui/material/Avatar";
 import { styled, useTheme } from "@mui/material/styles";
 import { useState } from "react";
-import InboxIcon from "@mui/icons-material/Inbox";
-import MailIcon from "@mui/icons-material/Mail";
+
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import Drawer from "@mui/material/Drawer";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -41,7 +38,6 @@ export const Header = () => {
     justifyContent: "flex-start",
   }));
 
-  const { user } = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -63,7 +59,7 @@ export const Header = () => {
     { title: "About", url: "/about" },
   ];
 
-  const drawerWidth = 240;
+  const drawerWidth = "100%";
 
   return (
     <AppBar sx={{ backgroundColor: "#fafafa" }} position="static">
@@ -75,7 +71,7 @@ export const Header = () => {
             <IconButton
               size="large"
               aria-label="menu"
-              edge="start"
+              edge="end"
               onClick={handleDrawerOpen}
               sx={{ ml: "auto" }}
             >
@@ -90,7 +86,6 @@ export const Header = () => {
                   width: drawerWidth,
                 },
               }}
-              variant="persistent"
               anchor="right"
               open={open}
             >
@@ -104,22 +99,26 @@ export const Header = () => {
                 </IconButton>
               </DrawerHeader>
               <Divider />
+
               <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map(
-                  (text, index) => (
-                    <ListItem key={text} disablePadding>
-                      <ListItemButton>
-                        <ListItemIcon>
-                          {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                      </ListItemButton>
-                    </ListItem>
-                  )
-                )}
+                {sections.map((section) => (
+                  <ListItem key={section.title} disablePadding>
+                    <ListItemButton component="a" href={section.url}>
+                      <ListItemText primary={section.title} />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
               </List>
 
-              <Divider />
+              <Button
+                component={Link}
+                href="/login"
+                sx={{ m: 1 }}
+                variant="contained"
+                size="medium "
+              >
+                login
+              </Button>
             </Drawer>
           </Hidden>
 
@@ -148,12 +147,17 @@ export const Header = () => {
 
         <Box>
           <Hidden mdDown>
-            <Button variant="outlined" size="medium ">
-              login
-            </Button>
-            <Button variant="contained" size="medium" sx={{ m: 1 }}>
-              Start free trial
-            </Button>
+            <Link href="/login">
+              <Button variant="outlined" size="medium ">
+                login
+              </Button>
+            </Link>
+
+            <Link href="/register">
+              <Button variant="contained" size="medium" sx={{ m: 1 }}>
+                Start free trial
+              </Button>
+            </Link>
           </Hidden>
         </Box>
       </Toolbar>

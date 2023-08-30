@@ -13,6 +13,7 @@ import ResetPassword from "./pages/reset-password/ResetPassword";
 import Product from "./pages/products/Product";
 import { NewProduct } from "./pages/products/NewProduct";
 import { PrivateRouter } from "./components/private-router/PrivateRouter";
+import HomePage from "./pages/layout/HomePage";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Browser>
         <Routes>
           {/* public router */}
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="verify" element={<NewAccVerify />} />
           <Route path="reset-password" element={<ResetPassword />} />
 
