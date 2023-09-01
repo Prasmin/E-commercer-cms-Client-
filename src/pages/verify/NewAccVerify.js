@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Alert, Spinner } from "react-bootstrap";
-import { Footer } from "../layout/Footer";
+
 import { Header } from "../layout/Header";
 
 import { useSearchParams } from "react-router-dom";
@@ -42,7 +42,6 @@ export const NewAccVerify = () => {
           <Spinner animation="border" variant="primary" className="fs-1" />
         )}
       </div>
-      <Footer />
     </>
   );
 };

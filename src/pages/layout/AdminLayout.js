@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { SideBar } from "./SideBar";
 
@@ -23,8 +22,6 @@ export const AdminLayout = ({ children }) => {
           </Row>
         </Container>
       </main>
-
-      <Footer />
     </div>
   );
 };

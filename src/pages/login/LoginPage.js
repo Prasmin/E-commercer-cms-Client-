@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Footer } from "../layout/Footer";
+
 import { Header } from "../layout/Header";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -78,7 +78,6 @@ const LoginPage = () => {
           </div>
         </Form>
       </div>
-      <Footer />
     </div>
   );
 };

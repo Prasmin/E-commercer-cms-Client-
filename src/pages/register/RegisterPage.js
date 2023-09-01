@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Footer } from "../layout/Footer";
+
 import { Header } from "../layout/Header";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -103,7 +103,6 @@ const RegisterPage = () => {
           </Form>
         </Container>
       </div>
-      <Footer />
     </div>
   );
 };

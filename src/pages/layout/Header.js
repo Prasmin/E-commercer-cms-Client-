@@ -116,6 +116,7 @@ export const Header = () => {
                 sx={{ m: 1 }}
                 variant="contained"
                 size="medium "
+                color="#000336"
               >
                 login
               </Button>

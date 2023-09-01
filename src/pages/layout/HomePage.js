@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
+import Footer from "./Footer";
 import {
   Box,
   Button,
@@ -16,9 +16,8 @@ const HomePage = () => {
     display: "flex",
     justifyContent: "center",
     gap: theme.spacing(5),
-    marginTop: theme.spacing(3),
     [theme.breakpoints.down("md")]: {
-      flexDirection: "colimn",
+      flexDirection: "column",
       alignItmes: "center",
       textAlign: "center",
     },
@@ -37,12 +36,12 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <Box sx={{ background: "#E6F0FF", minHeight: "80vh" }}>
+      <Box sx={{ minHeight: "80vh" }}>
         <Container>
           <CustomBox>
             <Box sx={{ flex: "1" }}>
               <Title variant="body1">
-                Elevate Your Business With CMS Platform
+                Elevate Your Business With CMS Platform.
               </Title>
               <Typography
                 variant="body2"
@@ -51,16 +50,19 @@ const HomePage = () => {
                 Be the first to get the best real estate deals before they hit
                 the mass market! Hot foreclosure deals with one simple search!
               </Typography>
-              <CustomButton
-                backgroundColor="#0F1B4C"
-                color="#fff"
-                buttonText="More About Us"
-                heroBtn={true}
-              />
+              <Link href="/register">
+                <CustomButton
+                  backgroundColor="#0F1B4C"
+                  color="#fff"
+                  buttonText="Get Started"
+                  heroBtn={true}
+                />
+              </Link>
             </Box>
           </CustomBox>
         </Container>
       </Box>
+      <Footer />
     </>
   );
 };

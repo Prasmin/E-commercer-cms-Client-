@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RequestOTP } from "../../components/request-otp/RequestOTP";
 import { PasswordRestFrm } from "../../components/reset-password/PasswordRestFrm";
-import { Footer } from "../layout/Footer";
+
 import { Header } from "../layout/Header";
 import { toast } from "react-toastify";
 import { fetchOtpRequest, resetPassRequest } from "../../helper/axios";
@@ -62,7 +62,6 @@ const ResetPassword = () => {
       )}
 
       <div className="main register-page p-5">{forms[showForm]}</div>
-      <Footer />
     </div>
   );
 };
