@@ -1,4 +1,4 @@
-import { Button, styled, Typography } from "@mui/material";
+import { Button, Link, styled, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import image from "./images/getstarted.jpg";
@@ -23,7 +23,7 @@ const GetStarted = () => {
 
   const CustomBox = styled(Box)(({ theme }) => ({
     padding: theme.spacing(10, 0, 10, 0),
-    margin: theme.spacing(0, 2, 0, 2),
+    margin: theme.spacing(0, 5, 0, 5),
     [theme.breakpoints.down("md")]: {
       padding: "0",
     },
@@ -41,18 +41,22 @@ const GetStarted = () => {
           <Typography
             sx={{ fontSize: "16px", color: "#ccc", fontWeight: "500", my: 3 }}
           >
-            Everything you need to know about houses!
+            Everything you need to know about CMS!
           </Typography>
-
-          <CustomButton
-            backgroundColor="#fff"
-            color="#17275F"
-            buttonText="Get Started Now"
-            getStartedBtn={true}
-          />
+          <Link href="/register">
+            <CustomButton
+              backgroundColor="#fff"
+              color="#17275F"
+              buttonText="Get Started Now"
+              getStartedBtn={true}
+            />
+          </Link>
         </Box>
-
-        <img src={image} alt="illustration" style={{ maxWidth: "100%" }} />
+        <img
+          src={image}
+          alt="illustration"
+          style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
+        />
       </CustomContainer>
     </CustomBox>
   );
