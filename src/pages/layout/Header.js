@@ -23,6 +23,7 @@ import { useState } from "react";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import CustomButton from "./CustomButton";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ export const Header = () => {
     <AppBar sx={{ backgroundColor: "#fafafa" }} position="static">
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
-          <Avatar alt="logo" src={logo} />
+          <Avatar component={Link} href="/" alt="logo" src={logo} />
 
           <Hidden mdUp>
             <IconButton
@@ -110,7 +111,15 @@ export const Header = () => {
                 ))}
               </List>
 
-              <Button
+              <Link href="/login">
+                <CustomButton
+                  backgroundColor="#0F1B4C"
+                  color="#fff"
+                  buttonText="Login"
+                  heroBtn={true}
+                />
+              </Link>
+              {/* <Button
                 component={Link}
                 href="/login"
                 sx={{ m: 1 }}
@@ -119,7 +128,7 @@ export const Header = () => {
                 color="#000336"
               >
                 login
-              </Button>
+              </Button> */}
             </Drawer>
           </Hidden>
 
@@ -146,19 +155,28 @@ export const Header = () => {
           </Hidden>
         </Box>
 
-        <Box>
+        <Box sx={{ display: "flex", mx: 5 }}>
           <Hidden mdDown>
             <Link href="/login">
+              <CustomButton
+                backgroundColor="#0F1B4C"
+                color="#fff"
+                buttonText="Login"
+                heroBtn={true}
+              />
+            </Link>
+
+            {/* <Link href="/login">
               <Button variant="outlined" size="medium ">
                 login
               </Button>
-            </Link>
+            </Link> */}
 
-            <Link href="/register">
+            {/* <Link href="/register">
               <Button variant="contained" size="medium" sx={{ m: 1 }}>
                 Start free trial
               </Button>
-            </Link>
+            </Link> */}
           </Hidden>
         </Box>
       </Toolbar>

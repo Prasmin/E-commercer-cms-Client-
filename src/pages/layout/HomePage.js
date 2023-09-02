@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import CustomButton from "./CustomButton";
+import GetStarted from "./GetStarted";
 
 const HomePage = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
@@ -62,6 +63,9 @@ const HomePage = () => {
           </CustomBox>
         </Container>
       </Box>
+
+      <GetStarted />
+
       <Footer />
     </>
   );
