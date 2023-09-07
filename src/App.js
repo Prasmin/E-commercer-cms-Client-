@@ -1,5 +1,4 @@
 import "./App.css";
-import LoginPage from "./pages/login/LoginPage";
 import RegisterPage from "./pages/register/RegisterPage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import { BrowserRouter as Browser, Routes, Route } from "react-router-dom";
@@ -13,6 +12,7 @@ import ResetPassword from "./pages/reset-password/ResetPassword";
 import Product from "./pages/products/Product";
 import { NewProduct } from "./pages/products/NewProduct";
 import { PrivateRouter } from "./components/private-router/PrivateRouter";
+import LoginPage from "./pages/login/LoginPage";
 import HomePage from "./pages/layout/HomePage";
 
 function App() {
@@ -22,19 +22,12 @@ function App() {
         <Routes>
           {/* public router */}
           <Route path="/" element={<HomePage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="verify" element={<NewAccVerify />} />
           <Route path="reset-password" element={<ResetPassword />} />
+          <Route path="register" element={<RegisterPage />} />
 
           {/* private router */}
-
-          <Route
-            path="register"
-            element={
-              <PrivateRouter>
-                <RegisterPage />
-              </PrivateRouter>
-            }
-          />
 
           <Route
             path="dashboard"

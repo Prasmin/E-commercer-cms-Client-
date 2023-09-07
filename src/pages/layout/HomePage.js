@@ -51,7 +51,7 @@ const HomePage = () => {
                 Be the first to get the best real estate deals before they hit
                 the mass market! Hot foreclosure deals with one simple search!
               </Typography>
-              <Link href="/register">
+              <Link href="register">
                 <CustomButton
                   backgroundColor="#0F1B4C"
                   color="#fff"
