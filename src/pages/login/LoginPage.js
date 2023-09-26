@@ -57,6 +57,7 @@ const LoginPage = (props) => {
       email: emailRef.current.value,
       password: passRef.current.value,
     };
+    console.log(formDt);
     // disptach login action to call api
     if (!formDt.email || !formDt.password) {
       return alert("Please fill in both the fields!");
@@ -118,7 +119,7 @@ const LoginPage = (props) => {
                 required
                 fullWidth
                 id="email"
-                ref={emailRef}
+                inputRef={emailRef}
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -129,8 +130,8 @@ const LoginPage = (props) => {
                 required
                 fullWidth
                 name="password"
-                ref={passRef}
-                label="Password"
+                inputRef={passRef}
+                label="password"
                 type="password"
                 id="password"
                 autoComplete="current-password"

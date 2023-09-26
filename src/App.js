@@ -22,15 +22,15 @@ function App() {
         <Routes>
           {/* public router */}
           <Route path="/" element={<HomePage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="verify" element={<NewAccVerify />} />
-          <Route path="reset-password" element={<ResetPassword />} />
-          <Route path="register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/verify" element={<NewAccVerify />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/register" element={<RegisterPage />} />
 
           {/* private router */}
 
           <Route
-            path="dashboard"
+            path="/dashboard"
             element={
               <PrivateRouter>
                 <Dashboard />
@@ -38,7 +38,7 @@ function App() {
             }
           />
           <Route
-            path="category"
+            path="/category"
             element={
               <PrivateRouter>
                 <Category />
@@ -46,7 +46,7 @@ function App() {
             }
           />
           <Route
-            path="payment-methods"
+            path="/payment-methods"
             element={
               <PrivateRouter>
                 <PaymentMethod />
@@ -54,7 +54,7 @@ function App() {
             }
           />
           <Route
-            path="products"
+            path="/products"
             element={
               <PrivateRouter>
                 <Product />
@@ -62,7 +62,7 @@ function App() {
             }
           />
           <Route
-            path="products/new"
+            path="/products/new"
             element={
               <PrivateRouter>
                 <NewProduct />

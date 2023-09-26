@@ -11,7 +11,7 @@ const fetchProcesser = async ({ method, url, data, isPrivate, token }) => {
   try {
     // await axios.post(adminApi + "/register", data);
     const jwtToken = token || sessionStorage.getItem("accessJWT");
-    console.log(jwtToken);
+
     const headers = isPrivate
       ? {
           Authorization: jwtToken,
@@ -37,7 +37,7 @@ const fetchProcesser = async ({ method, url, data, isPrivate, token }) => {
 
     return {
       status: "error",
-      message: error.message,
+      message: error.messages,
     };
   }
 };
@@ -51,6 +51,7 @@ export const postNewAdmin = async (data) => {
     url,
     data,
   };
+
   return fetchProcesser(obj);
 };
 

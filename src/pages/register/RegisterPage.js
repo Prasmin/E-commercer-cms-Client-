@@ -59,6 +59,7 @@ const RegisterPage = () => {
       return;
     }
     const { status, message } = await postNewAdmin(rest);
+    console.log(form);
 
     toast[status](message);
   };
@@ -87,39 +88,42 @@ const RegisterPage = () => {
             onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
-            <Grid container spacing={2} onChange={handleOnChange}>
-              <Grid onChange={handleOnChange} item xs={12} sm={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="fName"
                   required
                   fullWidth
                   id="firstName"
+                  onChange={handleOnChange}
                   label="First Name"
                   autoFocus
                 />
               </Grid>
-              <Grid onChange={handleOnChange} item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
                   id="lastName"
                   label="Last Name"
-                  name="lastName"
+                  name="lName"
+                  onChange={handleOnChange}
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid onChange={handleOnChange} item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
+                  onChange={handleOnChange}
                   autoComplete="email"
                 />
               </Grid>
-              <Grid onChange={handleOnChange} item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -127,29 +131,45 @@ const RegisterPage = () => {
                   label="Address"
                   type="Address"
                   id="Address"
+                  onChange={handleOnChange}
                   autoComplete="Address"
                 />
               </Grid>
-              <Grid onChange={handleOnChange} item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="Password"
-                  label="Password"
+                  name="Phone"
+                  label="Phone"
+                  type="text"
+                  id="phone"
+                  onChange={handleOnChange}
+                  autoComplete="phone"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="password"
                   type="password"
                   id="password"
+                  onChange={handleOnChange}
                   autoComplete="current-password"
                 />
               </Grid>
-              <Grid onChange={handleOnChange} item xs={12}>
+
+              <Grid item xs={12}>
                 <TextField
                   fullWidth
                   required
-                  name=" Confirm Password"
-                  label=" Confirm Password"
-                  type=" password"
-                  id="Password"
-                  autoComplete="password "
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                  onChange={handleOnChange}
+                  autoComplete="confirm-Password "
                 />
               </Grid>
               <Grid item xs={12}>
@@ -161,6 +181,7 @@ const RegisterPage = () => {
                 />
               </Grid>
             </Grid>
+
             <Button
               type="submit"
               fullWidth
@@ -214,3 +235,5 @@ export default RegisterPage;
         </Container>
       </div>
     </div> */
+
+//
