@@ -1,6 +1,6 @@
 import "./App.css";
 import RegisterPage from "./pages/register/RegisterPage";
-import Dashboard from "./pages/dashboard/Dashboard";
+
 import { BrowserRouter as Browser, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -14,6 +14,7 @@ import { NewProduct } from "./pages/products/NewProduct";
 import { PrivateRouter } from "./components/private-router/PrivateRouter";
 import LoginPage from "./pages/login/LoginPage";
 import HomePage from "./pages/layout/HomePage";
+import { Layout } from "./pages/dashboard/Layout";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
             path="/dashboard"
             element={
               <PrivateRouter>
-                <Dashboard />
+                <Layout />
               </PrivateRouter>
             }
           />

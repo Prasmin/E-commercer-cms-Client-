@@ -7,7 +7,6 @@ import { SideBar } from "./SideBar";
 export const AdminLayout = ({ children }) => {
   return (
     <div>
-      <Header />
       <main className="main">
         <Container fluid>
           <Row>
