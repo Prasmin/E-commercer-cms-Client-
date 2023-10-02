@@ -14,7 +14,7 @@ import { NewProduct } from "./pages/products/NewProduct";
 import { PrivateRouter } from "./components/private-router/PrivateRouter";
 import LoginPage from "./pages/login/LoginPage";
 import HomePage from "./pages/layout/HomePage";
-import { Layout } from "./pages/dashboard/Layout";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   return (
@@ -30,46 +30,11 @@ function App() {
 
           {/* private router */}
 
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRouter>
-                <Layout />
-              </PrivateRouter>
-            }
-          />
-          <Route
-            path="/category"
-            element={
-              <PrivateRouter>
-                <Category />
-              </PrivateRouter>
-            }
-          />
-          <Route
-            path="/payment-methods"
-            element={
-              <PrivateRouter>
-                <PaymentMethod />
-              </PrivateRouter>
-            }
-          />
-          <Route
-            path="/products"
-            element={
-              <PrivateRouter>
-                <Product />
-              </PrivateRouter>
-            }
-          />
-          <Route
-            path="/products/new"
-            element={
-              <PrivateRouter>
-                <NewProduct />
-              </PrivateRouter>
-            }
-          />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/payment-methods" element={<PaymentMethod />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/products/new" element={<NewProduct />} />
         </Routes>
       </Browser>
       <ToastContainer />

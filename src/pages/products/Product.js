@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ProductTable } from "../../components/Custome-table/ProductTable";
-import { AdminLayout } from "../layout/AdminLayout";
+import AdminLayout from "../dashboard/Adminlayout";
 
 const Products = () => {
   return (

@@ -1,6 +1,6 @@
 import { AddNewCatFrm } from "../../components/category-forms/AddNewCatFrm";
 import { CategoryTable } from "../../components/category-forms/CategoryTable";
-import { AdminLayout } from "../layout/AdminLayout";
+import AdminLayout from "../dashboard/Adminlayout";
 
 const Category = () => {
   return (

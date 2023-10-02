@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button, Form } from "react-bootstrap";
 import { CustomeInputeField } from "../../components/custom-inpute-field/CustomeInputeField";
-import { AdminLayout } from "../layout/AdminLayout";
+import AdminLayout from "../dashboard/Adminlayout";
 import { postProductAction } from "./productAction";
 import { Link } from "react-router-dom";
 
