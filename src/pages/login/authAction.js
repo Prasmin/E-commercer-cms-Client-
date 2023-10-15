@@ -3,7 +3,7 @@ import {
   fetchNewAccessJWT,
   fetchAdminProfile,
 } from "../../helper/axios";
-import { requestPending, requestSuccess } from "./authSlice";
+import { requestSuccess } from "./authSlice";
 import { toast } from "react-toastify";
 
 export const loginAction = (formData) => async (dispatch) => {
@@ -11,15 +11,15 @@ export const loginAction = (formData) => async (dispatch) => {
     // dispatch(requestPending());
 
     const pendingResp = loginAdmin(formData);
+    console.log(pendingResp);
 
     toast.promise(pendingResp, { pending: "Please wait ...." });
 
-    const { status, message, toknes } = await pendingResp;
+    const { status, message, token } = await pendingResp;
     toast[status](message);
-    console.log(toknes);
 
     if (status === "success") {
-      const { accessJWT, refreshJWT } = toknes;
+      const { accessJWT, refreshJWT } = token;
 
       sessionStorage.setItem("accessJWT", accessJWT);
       localStorage.setItem("refreshJWT", refreshJWT);
@@ -37,7 +37,7 @@ export const loginAction = (formData) => async (dispatch) => {
 const getAdminProfile = () => async (dispatch) => {
   const { status, user } = await fetchAdminProfile();
 
-  status === "success"
+  status === "success nicely"
     ? dispatch(requestSuccess(user))
     : dispatch(requestSuccess({}));
 };

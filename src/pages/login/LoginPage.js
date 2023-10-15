@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -17,11 +17,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useDispatch, useSelector } from "react-redux";
 import { autoLogin, loginAction } from "./authAction";
+import { Link } from "@mui/material";
 
 import { useNavigate, useLocation } from "react-router-dom";
+// import CustomButton from "../layout/CustomButton";
+// import { Button } from "@mui/material";
 
 //
-const LoginPage = (props) => {
+export const LoginPage = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailRef = useRef("");
@@ -57,7 +60,9 @@ const LoginPage = (props) => {
       email: emailRef.current.value,
       password: passRef.current.value,
     };
+
     console.log(formDt);
+
     // disptach login action to call api
     if (!formDt.email || !formDt.password) {
       return alert("Please fill in both the fields!");
@@ -108,11 +113,12 @@ const LoginPage = (props) => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
+
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
               sx={{ mt: 1 }}
+              onSubmit={handleSubmit}
             >
               <TextField
                 margin="normal"
@@ -140,14 +146,29 @@ const LoginPage = (props) => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
-                type="submit"
+              {/* 
+              <Link href="/dashboard">
+                <CustomButton
+                  backgroundColor="#0F1B4C"
+                  color="#fff"
+                  type="submit"
+                  buttonText="Sign In"
+                  sx={{ mt: 3, mb: 2 }}
+                ></CustomButton>
+              </Link> */}
+              {/* <Button
+                onClick={handleSubmit}
+                to="/dashboard"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
-              </Button>
+              </Button> */}
+              -
+              <Link href="/dashboard" onClick={handleSubmit}>
+                Sign In
+              </Link>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
@@ -168,8 +189,6 @@ const LoginPage = (props) => {
     </ThemeProvider>
   );
 };
-
-export default LoginPage;
 
 // import { Header } from "../layout/Header";
 // // import Button from "react-bootstrap/Button";

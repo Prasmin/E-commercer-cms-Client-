@@ -6,6 +6,7 @@ export const PrivateRouter = ({ children }) => {
   const location = useLocation();
 
   const { user } = useSelector((state) => state.user);
+
   const isAuth = user?._id;
 
   return isAuth ? (

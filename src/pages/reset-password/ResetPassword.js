@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { fetchOtpRequest, resetPassRequest } from "../../helper/axios";
 import { Alert } from "react-bootstrap";
 
-const ResetPassword = () => {
+export const ResetPassword = () => {
   const [email, setEmail] = useState("");
   const [showForm, setShowForm] = useState("otp");
   const [response, setResponse] = useState({});
@@ -65,5 +65,3 @@ const ResetPassword = () => {
     </div>
   );
 };
-
-export default ResetPassword;

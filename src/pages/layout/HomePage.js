@@ -1,18 +1,11 @@
 import React from "react";
 import { Header } from "./Header";
 import Footer from "./Footer";
-import {
-  Box,
-  Button,
-  Container,
-  styled,
-  Link,
-  Typography,
-} from "@mui/material";
+import { Box, Container, styled, Link, Typography } from "@mui/material";
 import CustomButton from "./CustomButton";
 import GetStarted from "./GetStarted";
 
-const HomePage = () => {
+export const HomePage = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
@@ -70,5 +63,3 @@ const HomePage = () => {
     </>
   );
 };
-
-export default HomePage;

@@ -4,7 +4,7 @@ import { PmTable } from "../../components/paymentform/PaymentTable";
 
 import AdminLayout from "../dashboard/Adminlayout";
 
-const PaymentMethod = () => {
+export const PaymentMethod = () => {
   return (
     <AdminLayout>
       <div>
@@ -16,4 +16,3 @@ const PaymentMethod = () => {
     </AdminLayout>
   );
 };
-export default PaymentMethod;

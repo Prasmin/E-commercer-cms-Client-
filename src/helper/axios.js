@@ -27,8 +27,6 @@ const fetchProcesser = async ({ method, url, data, isPrivate, token }) => {
 
     return res.data;
   } catch (error) {
-    const message = error.message;
-
     if (error?.response?.data?.message === "jwt expired") {
       const { accessJWT } = await fetchNewAccessJWT();
       sessionStorage.setItem("accessJWT", accessJWT);
@@ -82,6 +80,7 @@ export const fetchAdminProfile = async () => {
     url,
     isPrivate: true,
   };
+
   return fetchProcesser(obj);
 };
 
@@ -187,7 +186,7 @@ export const updatePM = async (data) => {
 export const fetchNewAccessJWT = async () => {
   const url = adminApi + "/new-accessjwt";
   const token = localStorage.getItem("refreshJWT");
-  console.log(token);
+
   const obj = {
     method: "get",
     url,

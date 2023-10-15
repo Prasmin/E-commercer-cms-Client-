@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ProductTable } from "../../components/Custome-table/ProductTable";
 import AdminLayout from "../dashboard/Adminlayout";
 
-const Products = () => {
+export const Product = () => {
   return (
     <AdminLayout>
       <div className="product py-3">
@@ -22,5 +22,3 @@ const Products = () => {
     </AdminLayout>
   );
 };
-
-export default Products;

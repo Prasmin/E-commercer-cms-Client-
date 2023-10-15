@@ -1,5 +1,3 @@
-import { useDispatch, useSelector } from "react-redux";
-import { requestSuccess } from "../login/authSlice";
 import {
   IconButton,
   Button,
@@ -26,8 +24,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import CustomButton from "./CustomButton";
 
 export const Header = () => {
-  const dispatch = useDispatch();
-
   const theme = useTheme();
 
   const DrawerHeader = styled("div")(({ theme }) => ({
@@ -49,11 +45,11 @@ export const Header = () => {
     setOpen(false);
   };
 
-  const handleOnLogout = () => {
-    sessionStorage.removeItem("accessJWT");
-    localStorage.removeItem("refreshJWT");
-    dispatch(requestSuccess({}));
-  };
+  // const handleOnLogout = () => {
+  //   sessionStorage.removeItem("accessJWT");
+  //   localStorage.removeItem("refreshJWT");
+  //   dispatch(requestSuccess({}));
+  // };
 
   const sections = [
     { title: "Pricing", url: "/pricing" },
@@ -119,7 +115,7 @@ export const Header = () => {
                   heroBtn={true}
                 />
               </Link>
-              {/* <Button
+              <Button
                 component={Link}
                 href="/login"
                 sx={{ m: 1 }}
@@ -128,7 +124,7 @@ export const Header = () => {
                 color="#000336"
               >
                 login
-              </Button> */}
+              </Button>
             </Drawer>
           </Hidden>
 
@@ -165,18 +161,6 @@ export const Header = () => {
                 heroBtn={true}
               />
             </Link>
-
-            {/* <Link href="/login">
-              <Button variant="outlined" size="medium ">
-                login
-              </Button>
-            </Link> */}
-
-            {/* <Link href="/register">
-              <Button variant="contained" size="medium" sx={{ m: 1 }}>
-                Start free trial
-              </Button>
-            </Link> */}
           </Hidden>
         </Box>
       </Toolbar>
