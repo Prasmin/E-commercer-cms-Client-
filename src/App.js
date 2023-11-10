@@ -28,6 +28,7 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/register" element={<RegisterPage />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/category" element={<Category />} />
 
           {/* private router */}
 
@@ -39,14 +40,14 @@ function App() {
               </PrivateRouter>
             }
           />
-          <Route
+          {/* <Route
             path="/category"
             element={
               <PrivateRouter>
                 <Category />
               </PrivateRouter>
             }
-          />
+          /> */}
           <Route
             path="/payment-methods"
             element={

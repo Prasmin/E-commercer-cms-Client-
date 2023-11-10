@@ -19,11 +19,14 @@ import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
+import { useDispatch, useSelector } from "react-redux";
+import { requestSuccess } from "../login/authSlice";
 
 const drawerWidth = 240;
 
@@ -76,8 +79,16 @@ const defaultTheme = createTheme();
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const handleOnLogOut = (e) => {
+    sessionStorage.removeItem("accessJWT");
+    localStorage.removeItem("refreshJWT");
+    dispatch(requestSuccess({}));
   };
 
   return (
@@ -114,6 +125,13 @@ export default function Dashboard() {
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
+              </Badge>
+            </IconButton>
+
+            {/* HandleLogout */}
+            <IconButton onClick={handleOnLogOut} color="inherit">
+              <Badge color="secondary">
+                <LogoutIcon />
               </Badge>
             </IconButton>
           </Toolbar>

@@ -17,11 +17,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useDispatch, useSelector } from "react-redux";
 import { autoLogin, loginAction } from "./authAction";
-import { Link } from "@mui/material";
+// import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import { useNavigate, useLocation } from "react-router-dom";
-// import CustomButton from "../layout/CustomButton";
-// import { Button } from "@mui/material";
+
+import { Button } from "@mui/material";
+// import Button from "react-bootstrap/Button";
+import { Spinner } from "react-bootstrap";
 
 //
 export const LoginPage = (props) => {
@@ -29,12 +32,16 @@ export const LoginPage = (props) => {
   const navigate = useNavigate();
   const emailRef = useRef("");
   const passRef = useRef("");
-  const { user } = useSelector((state) => state.user);
+
+  const { user, isLoading } = useSelector((state) => state.user);
   const location = useLocation();
 
   const defaultTheme = createTheme();
 
-  const origin = location?.state?.from?.pathname || "/dashboard";
+  const origin = location.state?.from?.pathname || "/dashboard";
+
+  console.log(origin);
+  console.log(location);
 
   function Copyright(props) {
     return (
@@ -45,7 +52,7 @@ export const LoginPage = (props) => {
         {...props}
       >
         {"Copyright © "}
-        <Link color="inherit" href="/">
+        <Link color="inherit" to="/">
           Your Website
         </Link>{" "}
         {new Date().getFullYear()}
@@ -114,12 +121,7 @@ export const LoginPage = (props) => {
               Sign in
             </Typography>
 
-            <Box
-              component="form"
-              noValidate
-              sx={{ mt: 1 }}
-              onSubmit={handleSubmit}
-            >
+            <Box component="form" sx={{ mt: 1 }} onSubmit={handleSubmit}>
               <TextField
                 margin="normal"
                 required
@@ -137,7 +139,7 @@ export const LoginPage = (props) => {
                 fullWidth
                 name="password"
                 inputRef={passRef}
-                label="password"
+                label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -146,8 +148,7 @@ export const LoginPage = (props) => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              {/* 
-              <Link href="/dashboard">
+              {/* <Link to="/dashboard">
                 <CustomButton
                   backgroundColor="#0F1B4C"
                   color="#fff"
@@ -156,27 +157,28 @@ export const LoginPage = (props) => {
                   sx={{ mt: 3, mb: 2 }}
                 ></CustomButton>
               </Link> */}
-              {/* <Button
-                onClick={handleSubmit}
-                to="/dashboard"
-                fullWidth
+              <Button
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                type="submit"
+                size="large"
+                sx={{ mt: 3 }}
               >
-                Sign In
-              </Button> */}
-              -
-              <Link href="/dashboard" onClick={handleSubmit}>
-                Sign In
-              </Link>
+                {isLoading ? (
+                  <Spinner variant="warning" animation="border " />
+                ) : (
+                  "submit"
+                )}
+                LogIn
+              </Button>
+
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link to="#" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/reset-password" variant="body2">
+                  <Link to="/register" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
@@ -235,7 +237,7 @@ export const LoginPage = (props) => {
 //         </Button>
 
 //         <div className="text-end">
-//           Forget password? <a href="/reset-password">Reset now</a>
+//           Forget password? <a to="/reset-password">Reset now</a>
 //         </div>
 //       </Form>
 //     </div>
