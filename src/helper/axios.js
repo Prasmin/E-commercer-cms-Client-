@@ -112,6 +112,7 @@ export const postCategory = async (data) => {
     method: "post",
     url,
     data,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -121,6 +122,7 @@ export const fetchCategory = async () => {
   const obj = {
     method: "get",
     url,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -130,6 +132,7 @@ export const deleteCategory = async (_id) => {
   const obj = {
     method: "delete",
     url,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -140,6 +143,7 @@ export const updateCategory = async (data) => {
     method: "put",
     url,
     data,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };

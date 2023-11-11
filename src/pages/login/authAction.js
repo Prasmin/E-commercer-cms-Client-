@@ -3,7 +3,7 @@ import {
   fetchNewAccessJWT,
   fetchAdminProfile,
 } from "../../helper/axios";
-import { requestPending, requestSuccess } from "./authSlice";
+import { requestSuccess } from "./authSlice";
 import { toast } from "react-toastify";
 
 export const loginAction = (formData) => async (dispatch) => {
@@ -36,7 +36,6 @@ export const loginAction = (formData) => async (dispatch) => {
 const getAdminProfile = () => async (dispatch) => {
   const { status, user } = await fetchAdminProfile();
 
-  console.log({ status, user });
   status === "success"
     ? dispatch(requestSuccess(user))
     : dispatch(requestSuccess({}));
