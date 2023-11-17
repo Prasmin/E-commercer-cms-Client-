@@ -155,6 +155,7 @@ export const postPM = async (data) => {
     method: "post",
     url,
     data,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -164,6 +165,7 @@ export const fetchPM = async () => {
   const obj = {
     method: "get",
     url,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -173,6 +175,7 @@ export const deletePM = async (_id) => {
   const obj = {
     method: "delete",
     url,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -183,6 +186,7 @@ export const updatePM = async (data) => {
     method: "put",
     url,
     data,
+    isPrivate: true,
   };
   return fetchProcesser(obj);
 };
@@ -201,8 +205,8 @@ export const fetchNewAccessJWT = async () => {
 };
 // product apis ==========
 
-export const fetchProduct = async () => {
-  const url = productApi;
+export const fetchProduct = async (_id) => {
+  const url = _id ? productApi + "/" + _id : productApi;
   const obj = {
     method: "get",
     url,

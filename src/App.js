@@ -14,6 +14,7 @@ import { NewProduct } from "./pages/products/NewProduct";
 import { PrivateRouter } from "./components/private-router/PrivateRouter";
 import { LoginPage } from "./pages/login/LoginPage";
 import { HomePage } from "./pages/layout/HomePage";
+import { EditProduct } from "./pages/products/EditProduct";
 import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
@@ -66,6 +67,14 @@ function App() {
             }
           />
 
+          <Route
+            path="/products/:_id"
+            element={
+              <PrivateRouter>
+                <EditProduct />
+              </PrivateRouter>
+            }
+          />
           <Route
             path="/products/new"
             element={

@@ -13,11 +13,12 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import ProductionQuantityLimitsRoundedIcon from "@mui/icons-material/ProductionQuantityLimitsRounded";
 
-import { Link } from "@mui/material";
+// import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const mainListItems = (
   <React.Fragment>
-    <Link href="/dashboard" style={{ color: "black", textDecoration: "none" }}>
+    <Link to="/dashboard" style={{ color: "black", textDecoration: "none" }}>
       <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -26,7 +27,7 @@ export const mainListItems = (
       </ListItemButton>
     </Link>
 
-    <Link href="/category" style={{ color: "black", textDecoration: "none" }}>
+    <Link to="/category" style={{ color: "black", textDecoration: "none" }}>
       <ListItemButton>
         <ListItemIcon>
           <CategoryIcon />
@@ -34,7 +35,7 @@ export const mainListItems = (
         <ListItemText primary="Category" />
       </ListItemButton>
     </Link>
-    <Link href="/orders" style={{ color: "black", textDecoration: "none" }}>
+    <Link to="/orders" style={{ color: "black", textDecoration: "none" }}>
       <ListItemButton>
         <ListItemIcon>
           <ShoppingCartIcon />
@@ -43,7 +44,7 @@ export const mainListItems = (
       </ListItemButton>
     </Link>
 
-    <Link style={{ color: "black", textDecoration: "none" }} href="/customers">
+    <Link style={{ color: "black", textDecoration: "none" }} to="/customers">
       <ListItemButton>
         <ListItemIcon>
           <PeopleIcon />
@@ -54,7 +55,7 @@ export const mainListItems = (
 
     <Link
       style={{ color: "black", textDecoration: "none" }}
-      href="/payment-methods"
+      to="/payment-methods"
     >
       <ListItemButton>
         <ListItemIcon>
@@ -64,7 +65,7 @@ export const mainListItems = (
       </ListItemButton>
     </Link>
 
-    <Link style={{ color: "black", textDecoration: "none" }} href="/products">
+    <Link style={{ color: "black", textDecoration: "none" }} to="/products">
       <ListItemButton>
         <ListItemIcon>
           <ProductionQuantityLimitsRoundedIcon />
@@ -73,7 +74,7 @@ export const mainListItems = (
       </ListItemButton>
     </Link>
 
-    <Link style={{ color: "black", textDecoration: "none" }} href="/setting">
+    <Link style={{ color: "black", textDecoration: "none" }} to="/setting">
       <ListItemButton>
         <ListItemIcon>
           <SettingsRoundedIcon />

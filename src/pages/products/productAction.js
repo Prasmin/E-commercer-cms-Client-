@@ -9,7 +9,8 @@ import { toast } from "react-toastify";
 
 export const getProductAction = () => async (dispatch) => {
   const { status, products } = await fetchProduct();
-
+  console.log(products); //this products data using API
+  console.log(status);
   status === "success" && dispatch(setProducts(products));
 };
 
@@ -27,7 +28,6 @@ export const postProductAction = (obj) => async (dispatch) => {
   });
 
   const { status, message } = await respPromise;
-
   toast[status](message);
 
   status === "success" && dispatch(getProductAction());

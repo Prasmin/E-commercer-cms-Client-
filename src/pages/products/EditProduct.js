@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { CustomeSelect } from "../../components/custome-select/CustomeSelect";
 import { CustomeInputeField } from "../../components/custom-inpute-field/CustomeInputeField";
-import { AdminLayout } from "../layout/AdminLayout";
+import AdminLayout from "../dashboard/Adminlayout";
 import { getSelectedProductAction, updateProductAction } from "./productAction";
 
 export const EditProduct = () => {
@@ -13,8 +14,10 @@ export const EditProduct = () => {
   const { _id } = useParams();
 
   const [imgToDelete, setImgToDelete] = useState([]);
+  const { cats } = useSelector((state) => state.category);
 
   const { selectedProd } = useSelector((state) => state.product);
+  console.log(selectedProd);
 
   useEffect(() => {
     !selectedProd._id && dispatch(getSelectedProductAction(_id));
@@ -180,6 +183,14 @@ export const EditProduct = () => {
               onChange={handleOnChange}
             />
           </Form.Group>
+
+          <CustomeSelect
+            label="Category"
+            args={cats}
+            func={handleOnChange}
+            name="parentCat"
+            selectedCat={selectedProd.parentCat}
+          />
 
           {inputes.map((item, i) => (
             <CustomeInputeField
